@@ -16,7 +16,7 @@ Route::get('/', function () {
 });
 
 Route::resource('events','EventController');
-Route::get('/addeventurl','EventController@showform');
+
 
 Route::get('/displaydata','EventController@show');
 Route::get('/deleteevent','EventController@show');

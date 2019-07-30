@@ -32,9 +32,10 @@
                                name="end_date" value="{{ old('end_date') }}"  placeholder="Enter End Date"/><br/><br/>
 
                         <input type="submit" name="submit" class="btn btn-primary" value="Add Event Data"/>
+                        @include('errors')
                     </form>
 
-                    @include('errors')
+
                 </div>
             </div>
         </div>

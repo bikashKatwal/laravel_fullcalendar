@@ -17,7 +17,7 @@ class EventController extends Controller
         if ($data->count()) {
             foreach ($data as $key => $value) {
                 $events[] = Calendar::event(
-                    $value->title, false, new \DateTime($value->start_date), new \DateTime($value->end_date.' +1 day'), null,
+                    $value->title, false, new \DateTime($value->start_date), new \DateTime($value->end_date), null,
                     ['color' => $value->color, 'url' => 'pass here url and any route',]
                 );
             }
@@ -25,7 +25,7 @@ class EventController extends Controller
 
         $calendar = Calendar::addEvents($events);
 
-        return view('eventpage', compact('events', 'calendar'));
+        return view('eventmodel', compact('events', 'calendar'));
     }
 
     /**
@@ -37,10 +37,10 @@ class EventController extends Controller
         //
     }
 
-    public function showform()
-    {
-        return view('addevent');
-    }
+//    public function showform()
+//    {
+//        return view('addevent');
+//    }
 
     /**
      * Store a newly created resource in storage.
@@ -65,12 +65,11 @@ class EventController extends Controller
 
     /**
      * Show the form for editing the specified resource.
-     * @param $id
+     * @param Event $event
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
-    public function edit($id)
+    public function edit(Event $event)
     {
-        $events=Event::find($id);
         return view('editform', compact('events','id'));
     }
 

@@ -3,7 +3,7 @@
 @section('title','List of Events')
 
 @section('content')
-    <div class="container">
+
         <h2>Event Calendar [Full Calendar]</h2>
 
         <div class="row" style="margin-top: 2em">
@@ -18,9 +18,11 @@
                     <div class="panel-heading" style="background: #2e6da4; color: white">
                         Event Calendar [Full Calendar]
                     </div>
-                    <div class="panel-body">
-                        {!! $calendar->calendar() !!}
-                        {!! $calendar->script() !!}
+                    <div class="card col-lg-12">
+                        <div class="card-body">
+                            {!! $calendar->calendar() !!}
+                            {!! $calendar->script() !!}
+                        </div>
                     </div>
                 </div>
             </div>
@@ -34,6 +36,6 @@
 
         @include('errors')
 
-    </div>
+
 @endsection
 
