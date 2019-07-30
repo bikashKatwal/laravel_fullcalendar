@@ -23,10 +23,15 @@
                         <td>{{$event->color}}</td>
                         <td>{{$event->start_date}}</td>
                         <td>{{$event->end_date}}</td>
-                        <td><a href="{{action('EventController@edit',$event['id'])}}" class="btn btn-success">Edit</a>
-                        </td>
-                        <td><a href="{{action('EventController@edit',$event['id'])}}" class="btn btn-success">Delete</a>
-                        </td>
+                        <th><a href="{{action('EventController@edit',$event['id'])}}" class="btn btn-success">Edit</a>
+                        </th>
+                        <th>
+                            <form method="POST" action="{{ action('EventController@destroy',$event['id']) }}">
+                                @csrf
+                                @method('DELETE')
+                                <button type="submit" class="btn btn-danger">Delete</button>
+                            </form>
+                        </th>
                     </tr>
                     </tbody>
                 @endforeach

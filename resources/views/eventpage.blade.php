@@ -9,7 +9,7 @@
         <div class="row" style="margin-top: 2em">
             <a href="/addeventurl" class="btn btn-success" style="margin-right: 5px">Add Events</a>
             <a href="/displaydata" class="btn btn-primary" style="margin-right: 5px">Edit Events</a>
-            <a href="/deleteeventurl" class="btn btn-danger">Delete Events</a>
+            <a href="/deleteevent" class="btn btn-danger">Delete Events</a>
         </div>
         <br/>
         <div class="row">
