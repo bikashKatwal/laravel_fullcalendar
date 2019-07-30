@@ -19,3 +19,4 @@ Route::resource('events','EventController');
 Route::get('/addeventurl','EventController@showform');
 
 Route::get('/displaydata','EventController@show');
+

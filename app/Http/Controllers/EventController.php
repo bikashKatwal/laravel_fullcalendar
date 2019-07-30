@@ -17,7 +17,7 @@ class EventController extends Controller
         if ($data->count()) {
             foreach ($data as $key => $value) {
                 $events[] = Calendar::event(
-                    $value->title, false, new \DateTime($value->start_date), new \DateTime($value->end_date), null,
+                    $value->title, false, new \DateTime($value->start_date), new \DateTime($value->end_date.' +1 day'), null,
                     ['color' => $value->color, 'url' => 'pass here url and any route',]
                 );
             }
@@ -61,7 +61,6 @@ class EventController extends Controller
     {
         $events = Event::all();
         return view('display')->with('events', $events);
-
     }
 
     /**
@@ -72,7 +71,7 @@ class EventController extends Controller
     public function edit($id)
     {
         $events=Event::find($id);
-        return view('edit', compact('events','id'));
+        return view('editform', compact('events','id'));
     }
 
     /**
@@ -80,9 +79,10 @@ class EventController extends Controller
      * @param Request $request
      * @param Event $event
      */
-    public function update(Request $request, Event $event)
+    public function update(Event $event)
     {
-        //
+        $event->update($this->validateRequest());
+        return redirect('events')->with('success', 'Event updated successfully');
     }
 
     /**
